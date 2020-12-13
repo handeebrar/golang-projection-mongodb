@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/streadway/amqp"
 	"log"
 	product "projection/domain/product"
@@ -16,19 +15,30 @@ func failOnError(err error, errMessage string) {
 }
 
 func main() {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	var (
+		err 	error
+		conn 	*amqp.Connection
+		ch 		*amqp.Channel
+		q 		 amqp.Queue
+		msgs 	<-chan amqp.Delivery
+	)
+
+	log.Printf("RabbitMQ connection started")
+	conn, err = amqp.Dial("amqp://guest:guest@localhost:5672/")
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
 
-	fmt.Println("Mongodb Service Started")
-	mongoClient.LoadConfiguration()
+	log.Printf("MongoDB connection started")
+	err = mongoClient.LoadConfiguration()
+	failOnError(err, "Failed to connect to MongoDB")
 
-	ch, err := conn.Channel()
+	log.Printf("Open channel service started")
+	ch, err = conn.Channel()
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
 	//declare the queue from which we're going to consume
-	q, err := ch.QueueDeclare(
+	q, err = ch.QueueDeclare(
 		"InsertProduct",
 		false,
 		false,
@@ -38,7 +48,7 @@ func main() {
 	)
 	failOnError(err, "Failed to declare a queue")
 
-	msgs, err := ch.Consume(
+	msgs, err = ch.Consume(
 		q.Name,
 		"",
 		true,
@@ -57,14 +67,15 @@ func main() {
 
 			//convert payload to product model
 			var productModel *product.Product
-			if err := json.Unmarshal(d.Body, &productModel); err != nil {
+			if err = json.Unmarshal(d.Body, &productModel); err != nil {
+				log.Printf("Payload can not converted to product model: %s", err)
 				panic(err)
 			}
 
 			var repository product.ProductRepository = productModel
-			var err2 = repository.InsertProduct()
-			if err2 != nil {
-				panic(err2)
+			if err = repository.InsertProduct(); err != nil {
+				log.Printf("Record can not be inserted to db: %s", err)
+				panic(err)
 			}
 		}
 	}()

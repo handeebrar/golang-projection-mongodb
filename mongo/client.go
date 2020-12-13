@@ -9,13 +9,11 @@ import (
 
 var Db *mgo.Database
 
-// Config db connection struct
 type Config struct {
 	ConnectionUrl    string `json:"connectionUrl"`
 	DatabaseName     string `json:"databaseName"`
 }
 
-// Connect Establish a connection to database
 func Connect(connectionUrl string,databaseName string) {
 	info := &mgo.DialInfo{
 		Addrs:    []string{connectionUrl},
@@ -31,15 +29,19 @@ func Connect(connectionUrl string,databaseName string) {
 	Db = session.DB(databaseName)
 }
 
-//LoadConfiguration Parse the configuration file 'config.toml', and establish a connection to DB
-func LoadConfiguration() {
+func LoadConfiguration() error{
+
 	config:=Config{}
-	configFile, err := os.Open("config.json")
+	configFile, err := os.Open("config.qa.json")
 	defer configFile.Close()
+
 	if err != nil {
-		fmt.Println(err.Error())
+		return err
 	}
+	
 	jsonParser := json.NewDecoder(configFile)
 	jsonParser.Decode(&config)
 	Connect(config.ConnectionUrl,config.DatabaseName)
+
+	return nil
 }

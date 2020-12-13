@@ -14,9 +14,9 @@ type Product struct {
 
 func (product Product) InsertProduct() error {
 	product.Id = bson.NewObjectId()
-	err := mongoClient.Db.C("Product").Insert(&product)
-	if err!=nil{
+	if err := mongoClient.Db.C("Product").Insert(&product); err != nil {
 		return err
+	} else {
+		return nil
 	}
-	return nil
 }

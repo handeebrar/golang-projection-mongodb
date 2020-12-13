@@ -1,5 +1,5 @@
 {
 
   "connectionUrl": "localhost:27017",
-  "databaseName":"ProjectionDB"
+  "databaseName": "ProjectionDB"
 }

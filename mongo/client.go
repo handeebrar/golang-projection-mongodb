@@ -1,10 +1,10 @@
 package mongo
+
 import (
 	"encoding/json"
-	"fmt"
+	mgo "gopkg.in/mgo.v2"
 	"os"
 	"time"
-	mgo "gopkg.in/mgo.v2"
 )
 
 var Db *mgo.Database
@@ -14,7 +14,7 @@ type Config struct {
 	DatabaseName     string `json:"databaseName"`
 }
 
-func Connect(connectionUrl string,databaseName string) {
+func Connect(connectionUrl string,databaseName string) error {
 	info := &mgo.DialInfo{
 		Addrs:    []string{connectionUrl},
 		Timeout:  5 * time.Second,
@@ -22,17 +22,25 @@ func Connect(connectionUrl string,databaseName string) {
 		Username: "",
 		Password: "",
 	}
+
 	session, err := mgo.DialWithInfo(info)
+
 	if err != nil {
-		fmt.Println(err.Error())
+		return err
+	} else {
+		Db = session.DB(databaseName)
+		return nil
 	}
-	Db = session.DB(databaseName)
 }
 
 func LoadConfiguration() error{
+	var (
+		err error
+		configFile *os.File
+	)
 
 	config:=Config{}
-	configFile, err := os.Open("config.qa.json")
+	configFile, err = os.Open("config.qa.json")
 	defer configFile.Close()
 
 	if err != nil {
@@ -41,7 +49,10 @@ func LoadConfiguration() error{
 	
 	jsonParser := json.NewDecoder(configFile)
 	jsonParser.Decode(&config)
-	Connect(config.ConnectionUrl,config.DatabaseName)
 
-	return nil
+	if err = Connect(config.ConnectionUrl,config.DatabaseName); err != nil {
+		return err
+	} else {
+		return nil
+	}
 }

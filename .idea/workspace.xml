@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="125d10e4-5fbe-465a-8931-a653c47e15d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/domain/product/mapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/product/model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/product/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/events/product/created.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.qa.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/product/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mongo/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/product/mapper.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/product/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/product/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/product/service.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +40,87 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RunManager">
+    <configuration name="go build projection" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="projection" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="projection" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build projection" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="672" height="446" key="DebuggerActiveHint" timestamp="1607891893524">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="672" height="446" key="DebuggerActiveHint/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607891893524" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1607321039198">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607321039198" />
+    <state width="1237" height="146" key="GridCell.Tab.0.bottom" timestamp="1607892631143">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.0.bottom/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892631143" />
+    <state width="1237" height="146" key="GridCell.Tab.0.center" timestamp="1607892631143">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.0.center/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892631143" />
+    <state width="1237" height="146" key="GridCell.Tab.0.left" timestamp="1607892631143">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.0.left/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892631143" />
+    <state width="1237" height="146" key="GridCell.Tab.0.right" timestamp="1607892631143">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.0.right/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892631143" />
+    <state width="1237" height="146" key="GridCell.Tab.1.bottom" timestamp="1607892618560">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.1.bottom/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892618560" />
+    <state width="1237" height="146" key="GridCell.Tab.1.center" timestamp="1607892618560">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.1.center/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892618560" />
+    <state width="1237" height="146" key="GridCell.Tab.1.left" timestamp="1607892618560">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.1.left/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892618560" />
+    <state width="1237" height="146" key="GridCell.Tab.1.right" timestamp="1607892618560">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="146" key="GridCell.Tab.1.right/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892618560" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/main.go</url>
+          <line>58</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/mongo/client.go</url>
+          <line>26</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/main.go</url>
+          <line>64</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

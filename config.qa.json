@@ -1,0 +1,5 @@
+{
+
+  "connectionUrl": "localhost:27017",
+  "databaseName":"DemDB"
+}

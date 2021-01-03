@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="125d10e4-5fbe-465a-8931-a653c47e15d9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.qa.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.qa.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/product/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/product/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongo/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/mongo/client.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +56,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609362297778">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1609362297778" />
     <state width="1008" height="683" key="DebuggerActiveHint" timestamp="1607893930716">
       <screen x="10" y="-1080" width="1920" height="1040" />
     </state>
@@ -106,6 +109,10 @@
     </state>
     <state width="1237" height="174" key="GridCell.Tab.1.right/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1607892990018" />
     <state width="1877" height="298" key="GridCell.Tab.1.right/0.0.1280.680/10.-1080.1920.1040@10.-1080.1920.1040" timestamp="1607894249672" />
+    <state x="431" y="43" key="RollbackChangesDialog" timestamp="1609362163864">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="431" y="43" key="RollbackChangesDialog/0.0.1280.680/10.-1080.1920.1040@0.0.1280.680" timestamp="1609362163864" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
